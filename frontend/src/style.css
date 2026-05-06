@@ -504,3 +504,57 @@ h1 {
     padding: 14px 18px;
   }
 }
+
+.example-questions {
+  margin-bottom: 34px;
+}
+
+.example-questions p {
+  color: #93c5fd;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.example-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.example-list button {
+  border: 1px solid rgba(125, 211, 252, 0.22);
+  background: rgba(14, 165, 233, 0.1);
+  color: #dbeafe;
+  border-radius: 999px;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.example-list button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(125, 211, 252, 0.75);
+  background: rgba(14, 165, 233, 0.18);
+}
+
+.chat-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clear-button {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(15, 23, 42, 0.7);
+  color: #cbd5e1;
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.clear-button:hover {
+  border-color: rgba(125, 211, 252, 0.7);
+  color: white;
+}
