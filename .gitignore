@@ -1,27 +1,28 @@
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-.Python
 .venv/
 venv/
 env/
 
-# Environment variables
+# Environment
 .env
 
-# Vector stores / local databases
+# Storage / vector DB
 storage/
-chroma_db/
-vector_store/
+chroma/
+.data/
+*.sqlite3
 
-# IDE
-.vscode/
+# Node / Vue
+node_modules/
+dist/
+.vite/
 
-# OS
+# OS / IDE
 .DS_Store
-Thumbs.db
+.vscode/
+.idea/
 
 # Logs
 *.log
