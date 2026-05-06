@@ -1,39 +1,102 @@
-# Manual demo de la aplicación
+# AI Website Assistant Demo Documentation
 
-Esta aplicación permite gestionar usuarios, productos, pedidos y documentación interna.
+This documentation describes a demo business management application used to test the RAG chatbot.
 
-## Usuarios
+The application allows administrators to manage users, products, orders, support tickets and internal documentation.
 
-El panel de usuarios permite consultar, crear, editar y archivar usuarios.
+## Users
 
-## Archivado de usuarios
+The user management panel allows administrators to create, view, edit and archive users.
 
-Para archivar un usuario, el administrador debe entrar en el panel de usuarios, seleccionar el usuario correspondiente y pulsar la opción de archivar.
+Each user has a name, email, role, status and registration date.
 
-Los usuarios archivados no se eliminan de la base de datos. Solo dejan de aparecer en los listados principales.
+Available roles are:
 
-El archivado se utiliza para conservar el historial y evitar la pérdida de información sensible.
+- Administrator
+- Manager
+- Support Agent
+- Customer
 
-## Productos
+Only administrators can create or archive users.
 
-El panel de productos permite gestionar el catálogo de productos, incluyendo nombre, descripción, precio, stock y estado.
+## User Archiving
 
-## Pedidos
+To archive a user, the administrator must open the user management panel, select the target user and click the archive option.
 
-El panel de pedidos permite revisar pedidos realizados, consultar su estado y actualizar información relacionada con el proceso de entrega.
+Archived users are not deleted from the database. They are hidden from the main user lists but their historical records are preserved.
 
-## Seguridad
+This is important because the system must keep sensitive information and activity history for security, audit and legal reasons.
 
-La información sensible no debe mostrarse a usuarios sin permisos.
+## Products
 
-Solo los usuarios autenticados pueden acceder al panel de administración.
+The product management panel allows administrators to manage the product catalog.
 
-Las acciones críticas deben estar protegidas mediante permisos o roles.
+Each product can have:
 
-## Chatbot
+- Name
+- Description
+- Price
+- Stock
+- Category
+- Status
 
-El chatbot debe responder solo usando la documentación disponible.
+Products can be active, inactive or archived.
 
-Si la información no aparece en los documentos, el chatbot debe indicar que no tiene información suficiente.
+## Orders
 
-El chatbot debe mostrar las fuentes utilizadas para generar cada respuesta.
+The orders panel allows the team to review customer orders, update order status and check delivery information.
+
+Available order statuses are:
+
+- Pending
+- Processing
+- Shipped
+- Completed
+- Cancelled
+
+Only managers and administrators can change order status.
+
+## Support Tickets
+
+The support module allows customers to create tickets and support agents to answer them.
+
+Each ticket contains:
+
+- Customer name
+- Email
+- Subject
+- Message
+- Priority
+- Status
+
+Ticket priorities are low, medium and high.
+
+Ticket statuses are open, in progress, resolved and closed.
+
+## Security
+
+Sensitive information must not be shown to users without proper permissions.
+
+Only authenticated users can access the admin panel.
+
+Critical actions such as archiving users, deleting records or changing order status must require administrator or manager permissions.
+
+## Chatbot Behavior
+
+The chatbot must answer only using the available documentation.
+
+If the answer is not found in the documents, the chatbot must say that it does not have enough information.
+
+The chatbot should show the source documents used to generate each answer.
+
+The chatbot should answer in the same language as the user question whenever possible.
+
+## Example Questions
+
+The chatbot should be able to answer questions such as:
+
+- How do I archive a user?
+- What happens to archived users?
+- Who can change order status?
+- What information is stored in a support ticket?
+- What should the chatbot do if it does not have enough information?

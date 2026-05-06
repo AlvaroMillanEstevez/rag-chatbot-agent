@@ -68,16 +68,32 @@ def ask_question(question: str):
     response = query_engine.query(question)
 
     sources = []
+    seen_sources = set()
 
     for source_node in response.source_nodes:
         metadata = source_node.node.metadata or {}
 
+        file_name = metadata.get("file_name")
+        page_label = metadata.get("page_label")
+        score = source_node.score
+        text = source_node.node.get_content()[:500]
+
+        if score is not None and score < settings.SOURCE_SCORE_THRESHOLD:
+            continue
+
+        source_key = f"{file_name}-{page_label}-{text[:120]}"
+
+        if source_key in seen_sources:
+            continue
+
+        seen_sources.add(source_key)
+
         sources.append(
             SourceNode(
-                file_name=metadata.get("file_name"),
-                page_label=metadata.get("page_label"),
-                score=source_node.score,
-                text=source_node.node.get_content()[:500]
+                file_name=file_name,
+                page_label=page_label,
+                score=score,
+                text=text
             )
         )
 

@@ -21,5 +21,7 @@ class Settings:
 
     SIMILARITY_TOP_K: int = int(os.getenv("SIMILARITY_TOP_K", "4"))
 
+    SOURCE_SCORE_THRESHOLD: float = float(os.getenv("SOURCE_SCORE_THRESHOLD", "0.35"))
+
 
 settings = Settings()

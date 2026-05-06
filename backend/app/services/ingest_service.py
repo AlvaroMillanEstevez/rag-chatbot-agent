@@ -1,10 +1,13 @@
 import chromadb
+import shutil
 
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings, StorageContext
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.vector_stores.chroma import ChromaVectorStore
 
 from app.config import settings
+
+from pathlib import Path
 
 
 def configure_embeddings() -> None:
@@ -52,3 +55,13 @@ def ingest_documents() -> int:
     )
 
     return len(documents)
+
+def reset_vector_store() -> None:
+    """
+    Deletes the local Chroma vector store so documents can be re-ingested from scratch.
+    Useful during development when source documents change.
+    """
+    chroma_path = Path(settings.STORAGE_DIR) / "chroma"
+
+    if chroma_path.exists():
+        shutil.rmtree(chroma_path)
