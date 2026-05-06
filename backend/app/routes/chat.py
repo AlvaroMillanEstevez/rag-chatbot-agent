@@ -11,9 +11,16 @@ def chat(request: ChatRequest):
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
 
-    answer, sources = ask_question(request.question)
+    try:
+        answer, sources = ask_question(request.question)
 
-    return ChatResponse(
-        answer=answer,
-        sources=sources
-    )
+        return ChatResponse(
+            answer=answer,
+            sources=sources
+        )
+
+    except Exception as error:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Chat service error: {str(error)}"
+        )
